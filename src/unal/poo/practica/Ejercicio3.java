@@ -5,7 +5,7 @@ import becker.robots.*;
 /** 
  * Practica de los conceptos de Programacion Estructurada
  * @author Fabian Andres Giraldo */
-public class RobotBase
+public class Ejercicio3
 {    
        //Declaracion de Variables -- Forma temporal - No es buena practica tener
        //variables estaticas
@@ -19,37 +19,38 @@ public class RobotBase
             
             //Direction.NORTH, EAST, SOUTH, WEST
             //Definicion de la ubicacion del robot, Ciudad, posicion, Direccion, Numero things en el bolso.
-            estudiante = new Robot(objetos,1, 2, Direction.SOUTH,10);
+            estudiante = new Robot(objetos,0, 1, Direction.SOUTH,10);
            
-            for (int i=0; i<3; i++){
-                estudiante.turnLeft();
-            }
-            estudiante.move();
-            estudiante.turnLeft();
-            estudiante.move();
-            estudiante.turnLeft();
-            estudiante.move();
+           
+          // terminar en  5 1
+          estudiante.move();
+          boolean CanPick = estudiante.canPickThing();
+          //int numb;
+          while (CanPick==true){
+             
+              estudiante.pickThing();
             
-            boolean puedeTomar = estudiante.canPickThing();
+          }
+          
+          int numeroThings = estudiante.countThingsInBackpack();
+          
+          estudiante.turnLeft();
             
-            if (puedeTomar==true){
-                estudiante.pickThing();
+            //Poner Thing, se debe validar que tenga things en el bolso
+            for (int i=0; i<numeroThings; i++){
+                estudiante.move();
+                estudiante.putThing();
             }
-            for (int i=0; i<2; i++){
-                estudiante.turnLeft();
-            }
-            estudiante.move();
-            for (int i=0; i<3; i++){
-                estudiante.turnLeft();
-            }
-            estudiante.move();
-            for (int i=0; i<3; i++){
-                estudiante.turnLeft();
-            }
-            estudiante.move();
-            for (int i=0; i<3; i++){
-                estudiante.turnLeft();
-            }
+            
+          /*for (int i=0; i<3; i++){
+              boolean CanPick = estudiante.canPickThing();
+           
+           if (CanPick==true){
+               estudiante.pickThing();
+           }
+          }*/
+           
+                   
      
 	}
         
